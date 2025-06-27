@@ -11,6 +11,12 @@ import (
 	"encoding/json"
 	"encoding/pem"
 	"fmt"
+	"io"
+	"net/http"
+	"net/url"
+	"os"
+	"strings"
+
 	"github.com/ethereum/go-ethereum/common"
 	cr "github.com/ethereum/go-ethereum/crypto"
 	"github.com/rs/zerolog"
@@ -19,11 +25,6 @@ import (
 	"github.com/smallstep/certificates/ca"
 	"go.step.sm/crypto/jose"
 	"go.step.sm/crypto/x509util"
-	"io"
-	"net/http"
-	"net/url"
-	"os"
-	"strings"
 )
 
 // Config holds the configuration for the certificate library.

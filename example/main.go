@@ -4,11 +4,12 @@ import (
 	"crypto/ecdsa"
 	"crypto/tls"
 	"fmt"
-	"github.com/ethereum/go-ethereum/common"
-	cr "github.com/ethereum/go-ethereum/crypto"
 	"log"
 	"oracle-certs/certlib"
 	"os"
+
+	"github.com/ethereum/go-ethereum/common"
+	cr "github.com/ethereum/go-ethereum/crypto"
 )
 
 func main() {

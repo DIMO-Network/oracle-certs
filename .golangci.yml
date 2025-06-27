@@ -1,0 +1,23 @@
+run:
+  timeout: 5m
+
+linters:
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+    - ineffassign
+    - gosimple
+    - unused
+
+issues:
+  exclude-use-default: false
+
+linters-settings:
+  gci:
+    sections:
+      - standard
+      - default
+      - blank
+    skip-generated: true
+    custom-order: false
