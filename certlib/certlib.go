@@ -41,7 +41,7 @@ type Config struct {
 	HTTPClient           *http.Client
 }
 
-// NewDefaultConfig creates a default configuration for the library.
+// NewDefaultConfig creates a default configuration.
 func NewDefaultConfig() *Config {
 	return &Config{
 		Domain:               "http://127.0.0.1:10000",
@@ -77,7 +77,25 @@ type TokenResponse struct {
 	AccessToken string `json:"access_token"`
 }
 
-// RequestCertificates requests a certificate from step-ca.
+// RequestCertificates requests a certificate from step-ca using the provided parameters.
+// It performs the following steps:
+// 1. Retrieves an OAuth token by signing a challenge with the provided Ethereum private key.
+// 2. Uses the token to create and sign a certificate request with step-ca.
+// 3. Returns the signed certificate and private key in PEM format.
+//
+// Parameters:
+// - ethAddress: The Ethereum address used to sign the challenge.
+// - privateKey: The private key corresponding to the Ethereum address.
+// - clientSecret: The client secret for OAuth authentication.
+// - oauthURL: The URL of the OAuth server to generate and submit the challenge.
+// - stepCAUrl: The URL of the step-ca server to sign the certificate.
+// - fingerprint: The SHA256 fingerprint of the step-ca root certificate.
+// - connectionAddr: The connection address to be included in the certificate's Common Name.
+//
+// Returns:
+// - A string containing the signed certificate in PEM format.
+// - A string containing the private key in PEM format.
+// - An error if any step in the process fails.
 func (c *CertLib) RequestCertificates(
 	ethAddress *common.Address,
 	privateKey *ecdsa.PrivateKey,
