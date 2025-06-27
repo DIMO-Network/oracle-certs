@@ -7,9 +7,6 @@ require (
 	github.com/rs/zerolog v1.34.0
 	github.com/smallstep/certificates v0.28.3
 	go.step.sm/crypto v0.67.0
-)
-
-require (
 	dario.cat/mergo v1.0.1 // indirect
 	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/AndreasBriese/bbloom v0.0.0-20190825152654-46b345b51c96 // indirect
