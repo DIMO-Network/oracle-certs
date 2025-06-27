@@ -1,0 +1,44 @@
+version: "2"
+linters:
+  enable:
+    - prealloc
+    - revive
+    - zerologlint
+  settings:
+    tagliatelle:
+      case:
+        rules:
+          json: camel
+          yaml: upperSnake
+        use-field-name: true
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+issues:
+  fix: true
+formatters:
+  enable:
+    - goimports
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - prefix(github.com/DIMO-Network/shared)
+        - blank
+        - dot
+      custom-order: false
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
