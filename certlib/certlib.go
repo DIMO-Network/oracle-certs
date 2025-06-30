@@ -133,7 +133,11 @@ func (c *CertLib) getOauthToken(ethAddress *common.Address, privateKey *ecdsa.Pr
 	if err != nil {
 		return "", fmt.Errorf("error generating challenge: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err := resp.Body.Close(); err != nil {
+			c.Config.Logger.Warn().Msgf("Error closing response body: %v", err)
+		}
+	}()
 	if resp.StatusCode != http.StatusOK {
 		return "", fmt.Errorf("error generating challenge: %s", resp.Status)
 	}
@@ -168,7 +172,11 @@ func (c *CertLib) getOauthToken(ethAddress *common.Address, privateKey *ecdsa.Pr
 	if err != nil {
 		return "", fmt.Errorf("error submitting challenge: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if err := resp.Body.Close(); err != nil {
+			c.Config.Logger.Warn().Msgf("Error closing response body: %v", err)
+		}
+	}()
 
 	if resp.StatusCode != http.StatusOK {
 		challengeBody, _ := io.ReadAll(resp.Body)
