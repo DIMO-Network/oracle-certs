@@ -1,4 +1,4 @@
-module oracle-certs
+module  github.com/DIMO-Network/oracle-certs
 
 go 1.24.4
 
