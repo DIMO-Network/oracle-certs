@@ -5,9 +5,9 @@ import (
 	"crypto/tls"
 	"fmt"
 	"log"
-	"oracle-certs/certlib"
 	"os"
 
+	"github.com/DIMO-Network/oracle-certs/certlib"
 	"github.com/ethereum/go-ethereum/common"
 	cr "github.com/ethereum/go-ethereum/crypto"
 )
