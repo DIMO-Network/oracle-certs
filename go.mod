@@ -1,4 +1,4 @@
-module  github.com/DIMO-Network/oracle-certs
+module github.com/DIMO-Network/oracle-certs
 
 go 1.24.4
 
@@ -10,7 +10,7 @@ require (
 
 )
 
-    require (
+require (
 	dario.cat/mergo v1.0.1 // indirect
 	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/AndreasBriese/bbloom v0.0.0-20190825152654-46b345b51c96 // indirect
